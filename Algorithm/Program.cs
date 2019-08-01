@@ -25,7 +25,32 @@ namespace Algorithm
             Console.WriteLine(ArrayHelper.FindChongFuNumber(new int[] { 1, 3, 3, 4, 5, 2 }));
             Console.WriteLine(ArrayHelper.FindChongFuNumberPlus(new int[] { 1, 5, 2, 3, 3 }));
             Console.WriteLine(ArrayHelper.FindingInTwoDimensionalArray(nums, 1));
+            Console.WriteLine(Others.NumberOf2(7));
+            Console.WriteLine(Others.Fibonacci(10,1));
+            Console.WriteLine(10 & 9);
+            Console.WriteLine(ArrayHelper.NumbersThatAppearMoreThanHalfTheTimeInArray(new int[] { 1,2,3,3,3}));
+            Console.WriteLine(DateTime.Now);
+            for (int i = 1; i <= 5; i++)
+            {
+                QueueStack.Push_s(i);
+            }
+            Console.WriteLine(QueueStack.Top_s());
+            QueueStack.Pop_s();
+            Console.WriteLine(QueueStack.Top_s());
 
+
+            for (int i = 1; i <= 5; i++)
+            {
+                QueueStack.Push_q(i);
+            }
+            Console.WriteLine(QueueStack.Top_q());
+            QueueStack.Pop_q();
+            Console.WriteLine(QueueStack.Top_q());
+
+
+            //2019 / 8 / 1 16:53:23
+            //2019/8/1 17:35:53
+            //1、1、2、3、5、8、13、21、32 、55
             //Console.WriteLine(nums.GetLength(0)); // 一维长度
             // Console.WriteLine(nums.GetLength(1)); // 二维长度
             // var newhead = node.Reverse(head);

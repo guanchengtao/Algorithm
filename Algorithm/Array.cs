@@ -57,6 +57,23 @@ namespace Array
             }
             return r;
         }
+        public static int NumbersThatAppearMoreThanHalfTheTimeInArray(int[] nums)
+        {
+            //O(1) space O(n) time
+            int count = 0;
+            int res = 0;
+            foreach (int x in nums)
+            {
+                if(count == 0)
+                {
+                    res = x;
+                    count++;
+                }
+                else if(res == x) count++;
+                else count--;
+            }
+            return res;
+        }
         //从Two-dimensional array中find one number
         public static bool FindingInTwoDimensionalArray(int[,] nums, int key)
         {
