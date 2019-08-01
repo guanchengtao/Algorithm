@@ -1,0 +1,6 @@
+D:\TestCoding\Algorithm\Algorithm\bin\Debug\Algorithm.exe.config
+D:\TestCoding\Algorithm\Algorithm\bin\Debug\Algorithm.exe
+D:\TestCoding\Algorithm\Algorithm\bin\Debug\Algorithm.pdb
+D:\TestCoding\Algorithm\Algorithm\obj\Debug\Algorithm.csproj.CoreCompileInputs.cache
+D:\TestCoding\Algorithm\Algorithm\obj\Debug\Algorithm.exe
+D:\TestCoding\Algorithm\Algorithm\obj\Debug\Algorithm.pdb
