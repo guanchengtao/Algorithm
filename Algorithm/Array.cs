@@ -57,6 +57,37 @@ namespace Array
             }
             return r;
         }
+
+        public static int TheNumberOfTimesNumberAppears(int[] nums,int k)
+        {
+            //这可不是暴力，O(lgn) time
+            if (nums.Length==0) return 0;
+            int l = 0, r = nums.Length - 1;
+            while (l < r)
+            {
+                int mid = l + r >> 1;
+                if (nums[mid] < k) l = mid + 1;
+                else r = mid;
+            }
+            if (nums[l] != k) return 0;
+            int left = l;
+            l = 0;
+            r = nums.Length - 1;
+            while (l < r)
+            {
+                int mid = l + r + 1 >> 1;
+                if (nums[mid] <= k) l = mid;
+                else r = mid - 1;
+            }
+            return r - left + 1;
+            /*
+            int count = 0;
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (nums[i] == k) count++;
+            }
+            return count; */
+        }
         public static int NumbersThatAppearMoreThanHalfTheTimeInArray(int[] nums)
         {
             //O(1) space O(n) time

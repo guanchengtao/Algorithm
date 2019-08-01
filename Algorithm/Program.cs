@@ -3,10 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Algorithm
 {
+    public delegate int TestDelegate(int x, int y);
     class Program
     {
         static void Main(string[] args)
@@ -21,6 +23,10 @@ namespace Algorithm
               { 4, 7, 10,13 },
               { 6, 8, 11,15 }
             };
+            TestDelegate d2 = (int m ,int n) => { return m + n; };
+
+            d2(1,1);
+
             Console.WriteLine(ArrayHelper.GetMaxMoney(nums));
             Console.WriteLine(ArrayHelper.FindChongFuNumber(new int[] { 1, 3, 3, 4, 5, 2 }));
             Console.WriteLine(ArrayHelper.FindChongFuNumberPlus(new int[] { 1, 5, 2, 3, 3 }));
@@ -46,19 +52,23 @@ namespace Algorithm
             Console.WriteLine(QueueStack.Top_q());
             QueueStack.Pop_q();
             Console.WriteLine(QueueStack.Top_q());
-
-
-            //2019 / 8 / 1 16:53:23
-            //2019/8/1 17:35:53
-            //1、1、2、3、5、8、13、21、32 、55
-            //Console.WriteLine(nums.GetLength(0)); // 一维长度
+            //数组是升序数组
+            DateTime beforeExcute = DateTime.Now;
+            // Thread.Sleep(1000);
+            Console.WriteLine(ArrayHelper.TheNumberOfTimesNumberAppears(new int[] { 1,2,2,3,3},3));
+            DateTime afterExcute = DateTime.Now;
+            TimeSpan ts = afterExcute - beforeExcute;
+            Console.WriteLine(ts.TotalMilliseconds);
+            // 1、1、2、3、5、8、13、21、32、55
+            // Console.WriteLine(nums.GetLength(0)); // 一维长度
             // Console.WriteLine(nums.GetLength(1)); // 二维长度
             // var newhead = node.Reverse(head);
             // node.Print(newhead);
-            //  [2,3,1],
-            //  [1,7,1],
+            // [2,3,1],
+            // [1,7,1],
             //  [4,6,1] 2 -> 3 -> 7 -> 6 -> 1  total： 19
             Console.ReadKey();
         }
+    
     }
 }
