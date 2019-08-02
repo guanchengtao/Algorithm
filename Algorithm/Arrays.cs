@@ -1,7 +1,7 @@
 ﻿using SortHelper;
 using System;
 
-namespace Array
+namespace Arrays
 {
    public static class ArrayHelper
     {

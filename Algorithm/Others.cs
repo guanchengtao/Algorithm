@@ -23,6 +23,27 @@ namespace Algorithm
             }
             return count;
         }
+        /// <summary>
+        /// 比特位计数
+        /// </summary>
+        /// <param name="num"></param>
+        /// <returns></returns>
+
+        /*
+         * public static int[] CountBits(int n)
+        {
+            int[] res = new int[n + 1];
+            if (n <= 0) return res;
+            for (int i = 1; i <= n; i++)
+                res[i] = res[i & (i - 1)] + 1;
+            return res;
+        }
+        */
+        /// <summary>
+        /// 斐波那契数列
+        /// </summary>
+        /// <param name="n"></param>
+        /// <returns></returns>
         public static int Fibonacci(int n)
         {
             if (n == 1 || n == 2) return 1;

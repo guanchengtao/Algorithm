@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Algorithm
 {
-    public static class DP
+    public static class DynamicProgramming
     {
         //               _ _ _ _
         //               _ _ _ _
@@ -27,7 +27,7 @@ namespace Algorithm
             {
                 for (int j = 1; j <= n; j++)
                 {
-                    opts[i, j] = Math.Max(opts[i, j - 1], opts[i - 1, j]) + nums[i - 1, j - 1];
+                    opts[i, j] = max(opts[i, j - 1], opts[i - 1, j]) + nums[i - 1, j - 1];
                 }
             }
             return opts[m, n];
@@ -51,7 +51,7 @@ namespace Algorithm
                 {
                     if (i == 1) val = opts[i, j - 1];
                     else if (j == 1) val = opts[i - 1, j];
-                    else val = Math.Min(opts[i, j - 1], opts[i - 1, j]);
+                    else val = min(opts[i, j - 1], opts[i - 1, j]);
                     opts[i, j] = val + nums[i - 1, j - 1];
                 }
             }
@@ -137,7 +137,7 @@ namespace Algorithm
         /// <param name=""></param>
         /// <param name=""></param>
         /// <returns></returns>
-        public static int MinimumTotal(int[,] triangle)
+        public static int MinimumTotal(int[,] nums)
         {
             /*
             // 复制三角形最后一行，作为用来更新的一维数组。然后逐个遍历这个DP数组
@@ -148,16 +148,102 @@ namespace Algorithm
                [6,5,7],
               [4,1,8,3]      
            */
-            int n = triangle.GetLength(0);
-            int[] opts = { 4, 1, 8, 3 };
+            int n = nums.GetLength(0);
+            int m = nums.GetLength(1);
+            int[] opts = new int[m];
+            for (int k = 0; k < m; k++) opts[k] = nums[n - 1, k];
             for (int i = n - 2; i >= 0; i--)
             {
                 for (int j = 0; j <= i; j++)
                 {
-                    opts[j] = Math.Min(opts[j], opts[j + 1]) + triangle[i,j];
+                    opts[j] = min(opts[j], opts[j + 1]) + nums[i,j];
                 }
             }
             return opts[0];
         }
+       /// <summary>
+       /// 买股票的最佳时机
+       /// </summary>
+       /// <param name=""></param>
+       /// <param name=""></param>
+       /// <returns></returns>
+        public static int MaxProfit(int[] prices)
+        {
+            if (prices.Length == 0) return 0;
+            int res = 0, min_val = prices[0];
+            for (int i = 1; i < prices.Length; i++)
+            {
+                res = max(res, prices[i] - min_val);
+                min_val = min(min_val, prices[i]);
+            }
+            return res;
+        }
+        /// <summary>
+        /// 打家劫舍
+        /// </summary>
+        /// <param name=""></param>
+        /// <param name=""></param>
+        /// <returns></returns>
+        public static int Rob(int[] nums)
+        {
+            //[2,7,9,3,1]
+            int n = nums.Length;
+            if (n == 0) return 0;
+            if (n == 1) return nums[0];
+            int[] opts = new int[n];
+            opts[0] = nums[0];
+            opts[1] = max(nums[0],nums[1]);
+            for (int i = 2; i < n; i++)
+            {
+                opts[i] = max(nums[i] + opts[i - 2], opts[i - 1]);
+            }
+            return opts[n - 1];      
+        }
+        /// <summary>
+        /// 打家劫舍（环形房屋）
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <returns></returns>
+       /*
+        *public static int RobII(int[] nums)
+        {
+            //[2,7,9,3,1]
+            //一个偷 0 ~ n - 1 ,一个偷 1 ~ n
+            int n = nums.Length;
+            if (n == 0) return 0;
+            if (n == 1) return nums[0];
+            int[] opts1 = new int[n + 1];
+            int[] opts2 = new int[n + 1];
+            opts1[1] = nums[0];
+            for (int i = 2; i < n; i++) opts1[i] = max(opts1[i - 1], opts1[i - 2] + nums[i - 1]);
+            for (int i = 2; i <= n; i++) opts2[i] = max(opts2[i - 1], opts2[i - 2] + nums[i - 1]);
+            return max(opts1[n - 1], opts2[n]);
+        }
+        */
+        public static int DoTackForMoney()
+        {
+            int n = 8;  //任务个数
+            int[] pre = { 0, 0, 0, 1, 0, 2, 3, 5 }; //选择这个任务之后前驱最近任务下标
+            int[] profit = { 5, 1, 8, 4, 6, 3, 2, 4 };  //任务收益
+            int[] opts=new int[n + 1];
+            int res = 0;
+            for (int i = 1; i < n + 1; i++)
+            {
+                opts[i] = max(opts[i - 1], profit[i - 1] + opts[pre[i - 1]]);
+                res = max(opts[i], res);
+            }
+            return res;
+        }
+
+        #region 辅助函数
+        public static int max(int num1, int num2)
+        {
+            return num1 > num2 ? num1 : num2;
+        }
+        public static int min(int num1, int num2)
+        {
+            return num1 < num2 ? num1 : num2;
+        } 
+        #endregion
     }
 }

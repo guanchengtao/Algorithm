@@ -1,4 +1,4 @@
-﻿using Array;
+﻿using Arrays;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,14 +12,21 @@ namespace Algorithm
     {
         static void Main(string[] args)
         {
+
+          //  SearchMethods();
             DPMethods();
-            ArrayMethods();
-            StackAndQueue();
-            OthersMethods();
+          //  ArrayMethods();
+          //  StackAndQueue();
+          //  OthersMethods();
 
 
 
             Console.ReadKey();
+        }
+        static void SearchMethods()
+        {
+            Console.WriteLine(Search.BinarySearch(new int[] {1,4,5,3,2 },1));
+            //Console.WriteLine(Search.Bsearch_1(new int[] { 1,2,3,4,5 }, 10,0,5));
         }
         static void DPMethods()
         {
@@ -28,8 +35,8 @@ namespace Algorithm
               {1, 5, 1},
               {4, 2, 1}
             };
-            Console.WriteLine("=====DP========");
-            Console.WriteLine(DP.UniquePaths(7, 3));
+            Console.WriteLine("=====DynamicProgramming========");
+            Console.WriteLine(DynamicProgramming.UniquePaths(7, 3));
             int[,] nums1 = new int[3, 3] {
               { 0, 0, 0 },
               { 0, 0, 0 },
@@ -37,17 +44,21 @@ namespace Algorithm
             };
             int[,] num2 = new int[4, 4]
             {
-              { 2, 0, 0, 0},
-              { 3, 4, 0, 0},
-              { 6, 5, 7, 0},
-              { 4, 1, 8, 3}
+              {       1,  0,  0,  0},
+              {     3,  1,  0,  0},
+              {   6,  5,  1,  0},
+              { 4,  1,  8,  3}
             };
-            Console.WriteLine(DP.UniquePathsWithObstacles(nums1));
-            Console.WriteLine(DP.GetMaxMoney(nums));
-            Console.WriteLine(DP.GetMinMoney(nums));
-            Console.WriteLine(DP.ClimbStairs(3));
-            Console.WriteLine(DP.MinimumTotal(num2));
-            Console.WriteLine("=====DP========");
+            Console.WriteLine(DynamicProgramming.UniquePathsWithObstacles(nums1));
+            Console.WriteLine(DynamicProgramming.GetMaxMoney(nums));
+            Console.WriteLine(DynamicProgramming.GetMinMoney(nums));
+            Console.WriteLine(DynamicProgramming.ClimbStairs(3));
+            Console.WriteLine(DynamicProgramming.MinimumTotal(num2));
+            Console.WriteLine(DynamicProgramming.MaxProfit(new int[] { 7, 1, 5, 8, 6, 4 }));
+            Console.WriteLine(DynamicProgramming.Rob(new int[] { 2, 7, 9, 3, 1 }));
+            //Console.WriteLine(DynamicProgramming.RobII(new int[] { 2, 7, 9, 3, 1 }));
+            Console.WriteLine(DynamicProgramming.DoTackForMoney());
+            Console.WriteLine("======DynamicProgramming========");
         }
         static void ArrayMethods()
         {
@@ -92,7 +103,11 @@ namespace Algorithm
             Console.WriteLine("=======OthersMethods======");
             Console.WriteLine(Others.NumberOf2(7));
             Console.WriteLine(Others.Fibonacci(10, 1));
-
+            //int[] res = Others.CountBits(5);
+            //for (int i = 0; i < res.Length; i++)
+            //{
+            //    Console.Write(res[i] + "\t");
+            //}
             Console.WriteLine("=======OthersMethods======");
         }
     }
