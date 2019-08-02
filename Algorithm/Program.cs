@@ -8,34 +8,67 @@ using System.Threading.Tasks;
 
 namespace Algorithm
 {
-    public delegate int TestDelegate(int x, int y);
     class Program
     {
         static void Main(string[] args)
         {
-            // LinkNode node = new LinkNode(1);
-            // Console.WriteLine(node.data);
-            //var head=node.Create();
-            // node.Print(head);
+            DPMethods();
+            ArrayMethods();
+            StackAndQueue();
+            OthersMethods();
+
+
+
+            Console.ReadKey();
+        }
+        static void DPMethods()
+        {
+            int[,] nums = new int[3, 3] {
+              {1, 3, 1},
+              {1, 5, 1},
+              {4, 2, 1}
+            };
+            Console.WriteLine("=====DP========");
+            Console.WriteLine(DP.UniquePaths(7, 3));
+            int[,] nums1 = new int[3, 3] {
+              { 0, 0, 0 },
+              { 0, 0, 0 },
+              { 0, 0, 1 }
+            };
+            int[,] num2 = new int[4, 4]
+            {
+              { 2, 0, 0, 0},
+              { 3, 4, 0, 0},
+              { 6, 5, 7, 0},
+              { 4, 1, 8, 3}
+            };
+            Console.WriteLine(DP.UniquePathsWithObstacles(nums1));
+            Console.WriteLine(DP.GetMaxMoney(nums));
+            Console.WriteLine(DP.GetMinMoney(nums));
+            Console.WriteLine(DP.ClimbStairs(3));
+            Console.WriteLine(DP.MinimumTotal(num2));
+            Console.WriteLine("=====DP========");
+        }
+        static void ArrayMethods()
+        {
+            Console.WriteLine("=====Array========");
             int[,] nums = new int[4, 4] {
               { 1, 2, 8, 9  },
-              { 2, 4, 9, 12 },
-              { 4, 7, 10,13 },
-              { 6, 8, 11,15 }
+              { 2, 2, 9, 12 },
+              { 4, 1, 10,13 },
+              { 6, 1, 1, 1  }
             };
-            TestDelegate d2 = (int m ,int n) => { return m + n; };
-
-            d2(1,1);
-
-            Console.WriteLine(ArrayHelper.GetMaxMoney(nums));
             Console.WriteLine(ArrayHelper.FindChongFuNumber(new int[] { 1, 3, 3, 4, 5, 2 }));
             Console.WriteLine(ArrayHelper.FindChongFuNumberPlus(new int[] { 1, 5, 2, 3, 3 }));
             Console.WriteLine(ArrayHelper.FindingInTwoDimensionalArray(nums, 1));
-            Console.WriteLine(Others.NumberOf2(7));
-            Console.WriteLine(Others.Fibonacci(10,1));
-            Console.WriteLine(10 & 9);
-            Console.WriteLine(ArrayHelper.NumbersThatAppearMoreThanHalfTheTimeInArray(new int[] { 1,2,3,3,3}));
-            Console.WriteLine(DateTime.Now);
+            Console.WriteLine(ArrayHelper.NumbersThatAppearMoreThanHalfTheTimeInArray(new int[] { 1, 2, 3, 3, 3 }));
+            //数组是升序数组
+            Console.WriteLine(ArrayHelper.TheNumberOfTimesNumberAppears(new int[] { 1, 2, 2, 3, 3 }, 3));
+            Console.WriteLine("=====Array========");
+        }
+        static void StackAndQueue()
+        {
+            Console.WriteLine("=======StackAndQueue======");
             for (int i = 1; i <= 5; i++)
             {
                 QueueStack.Push_s(i);
@@ -52,23 +85,15 @@ namespace Algorithm
             Console.WriteLine(QueueStack.Top_q());
             QueueStack.Pop_q();
             Console.WriteLine(QueueStack.Top_q());
-            //数组是升序数组
-            DateTime beforeExcute = DateTime.Now;
-            // Thread.Sleep(1000);
-            Console.WriteLine(ArrayHelper.TheNumberOfTimesNumberAppears(new int[] { 1,2,2,3,3},3));
-            DateTime afterExcute = DateTime.Now;
-            TimeSpan ts = afterExcute - beforeExcute;
-            Console.WriteLine(ts.TotalMilliseconds);
-            // 1、1、2、3、5、8、13、21、32、55
-            // Console.WriteLine(nums.GetLength(0)); // 一维长度
-            // Console.WriteLine(nums.GetLength(1)); // 二维长度
-            // var newhead = node.Reverse(head);
-            // node.Print(newhead);
-            // [2,3,1],
-            // [1,7,1],
-            //  [4,6,1] 2 -> 3 -> 7 -> 6 -> 1  total： 19
-            Console.ReadKey();
+            Console.WriteLine("=======StackAndQueue======");
         }
-    
+        static void OthersMethods()
+        {
+            Console.WriteLine("=======OthersMethods======");
+            Console.WriteLine(Others.NumberOf2(7));
+            Console.WriteLine(Others.Fibonacci(10, 1));
+
+            Console.WriteLine("=======OthersMethods======");
+        }
     }
 }

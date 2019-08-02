@@ -5,26 +5,6 @@ namespace Array
 {
    public static class ArrayHelper
     {
-        //               _ _ _ _
-        //               _ _ _ _
-        //  [2,3,1],     _ _ _ _ 
-        //  [1,7,1],     _ _ _ _
-        //  [4,6,1] 2 -> 3 -> 7 -> 6 -> 1  total： 19
-        //寻找最优解
-        public static int GetMaxMoney(int[,] nums)
-        {
-            int m = nums.GetLength(0), n = nums.GetLength(1);
-            int[,] opts = new int[m + 1, n + 1];
-            for (int i = 1; i <= m; i++)
-            {
-                for (int j = 1; j <= n; j++)
-                {
-                    opts[i, j] = Math.Max(opts[i, j - 1], opts[i - 1, j]) + nums[i - 1, j - 1];
-                }
-            }
-            return opts[m, n];
-        }
-
         //在0 ~ n-1 有 n 个数字
         public static int FindChongFuNumber(int[] nums)
         {
