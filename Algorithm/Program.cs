@@ -1,4 +1,5 @@
 ﻿using Arrays;
+using LinkNodeHelper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,19 +14,52 @@ namespace Algorithm
         static void Main(string[] args)
         {
 
-          //  SearchMethods();
-            DPMethods();
-          //  ArrayMethods();
-          //  StackAndQueue();
+            //  SearchMethods();
+            //DPMethods();
+            //  ArrayMethods();
+            //  StackAndQueue();
             //OthersMethods();
-
+            LinkListMethods();
 
 
             Console.ReadKey();
         }
+        static void LinkListMethods()
+        {
+            ListNode list = new ListNode();
+            #region reverse
+            //int[] nums = { 1,2,3,4,5,6};
+            //var head=  list.Create(nums);
+            //list.Print(head);
+            //var newhead = list.Reverse(head);
+            //list.Print(newhead); 
+            #endregion
+            #region merge
+            int[] nums1 = { 1, 3, 4, 6, 7, 8 };
+            int[] nums2 = { 2, 3, 4, 5 };
+            var head1 = list.Create(nums1);
+            var head2 = list.Create(nums2);
+            var mergehead = list.MergeLinkList(head1, head2);
+            list.Print(mergehead);
+            Console.WriteLine(list.GetLength(mergehead));
+            #endregion
+
+            #region firstcommonnode
+            //int[] nums1 = { 1, 7 };
+            //int[] nums2 = { 4, 7 };
+            //var head1 = list.Create(nums1);
+            //var head2 = list.Create(nums2);
+            //Console.WriteLine(list.FirstCommonNode(head1, head2));
+            #endregion
+
+            ListNode delhead =  list.DeleteDuplicates(mergehead);
+            list.Print(delhead);
+
+
+        }
         static void SearchMethods()
         {
-            Console.WriteLine(Search.BinarySearch(new int[] {1,4,5,3,2 },1));
+            Console.WriteLine(Search.BinarySearch(new int[] { 1, 4, 5, 3, 2 }, 1));
             //Console.WriteLine(Search.Bsearch_1(new int[] { 1,2,3,4,5 }, 10,0,5));
         }
         static void DPMethods()

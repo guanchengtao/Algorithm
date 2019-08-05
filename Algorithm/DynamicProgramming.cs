@@ -208,7 +208,7 @@ namespace Algorithm
         public static int RobII(int[] nums)
         {
             //[2,7,9,3,1]
-            //一个偷 0 ~ n - 2 ,一个偷 1 ~ n - 1
+            //一个偷 0 ~ n - 1 ,一个偷 1 ~ n
             int n = nums.Length;
             if (n == 0) return 0;
             if (n == 1) return nums[0];
@@ -216,6 +216,7 @@ namespace Algorithm
             int[] opts2 = new int[n + 1];
             opts1[1] = nums[0];
             for (int i = 2; i < n; i++) opts1[i] = max(opts1[i - 1], opts1[i - 2] + nums[i - 1]);
+            for (int i = 2; i <= n; i++) opts2[i] = max(opts2[i - 1], opts2[i - 2] + nums[i - 1]);
             return max(opts1[n - 1], opts2[n]);
         }
         
