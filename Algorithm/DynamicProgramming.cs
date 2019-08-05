@@ -192,23 +192,23 @@ namespace Algorithm
             if (n == 1) return nums[0];
             int[] opts = new int[n];
             opts[0] = nums[0];
-            opts[1] = max(nums[0],nums[1]);
+            opts[1] = max(nums[0], nums[1]);
             for (int i = 2; i < n; i++)
             {
-                opts[i] = max(nums[i] + opts[i - 2], opts[i - 1]);
+                opts[i] = max(opts[i - 1], opts[i - 2] + nums[i]);
             }
-            return opts[n - 1];      
+            return opts[n - 1];
         }
         /// <summary>
         /// 打家劫舍（环形房屋）
         /// </summary>
         /// <param name="nums"></param>
         /// <returns></returns>
-       /*
-        *public static int RobII(int[] nums)
+       
+        public static int RobII(int[] nums)
         {
             //[2,7,9,3,1]
-            //一个偷 0 ~ n - 1 ,一个偷 1 ~ n
+            //一个偷 0 ~ n - 2 ,一个偷 1 ~ n - 1
             int n = nums.Length;
             if (n == 0) return 0;
             if (n == 1) return nums[0];
@@ -216,10 +216,9 @@ namespace Algorithm
             int[] opts2 = new int[n + 1];
             opts1[1] = nums[0];
             for (int i = 2; i < n; i++) opts1[i] = max(opts1[i - 1], opts1[i - 2] + nums[i - 1]);
-            for (int i = 2; i <= n; i++) opts2[i] = max(opts2[i - 1], opts2[i - 2] + nums[i - 1]);
             return max(opts1[n - 1], opts2[n]);
         }
-        */
+        
         public static int DoTackForMoney()
         {
             int n = 8;  //任务个数

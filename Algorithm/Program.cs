@@ -17,7 +17,7 @@ namespace Algorithm
             DPMethods();
           //  ArrayMethods();
           //  StackAndQueue();
-          //  OthersMethods();
+            //OthersMethods();
 
 
 
@@ -56,7 +56,7 @@ namespace Algorithm
             Console.WriteLine(DynamicProgramming.MinimumTotal(num2));
             Console.WriteLine(DynamicProgramming.MaxProfit(new int[] { 7, 1, 5, 8, 6, 4 }));
             Console.WriteLine(DynamicProgramming.Rob(new int[] { 2, 7, 9, 3, 1 }));
-            //Console.WriteLine(DynamicProgramming.RobII(new int[] { 2, 7, 9, 3, 1 }));
+            Console.WriteLine(DynamicProgramming.RobII(new int[] { 2, 7, 9, 3, 1 }));
             Console.WriteLine(DynamicProgramming.DoTackForMoney());
             Console.WriteLine("======DynamicProgramming========");
         }
@@ -102,12 +102,15 @@ namespace Algorithm
         {
             Console.WriteLine("=======OthersMethods======");
             Console.WriteLine(Others.NumberOf2(7));
-            Console.WriteLine(Others.Fibonacci(10, 1));
-            //int[] res = Others.CountBits(5);
-            //for (int i = 0; i < res.Length; i++)
-            //{
-            //    Console.Write(res[i] + "\t");
-            //}
+            Console.WriteLine(Others.FibonacciI(10));
+            Console.WriteLine(Others.FibonacciII(10));
+            Console.WriteLine(Others.FibonacciIII(10));
+            int[] res = Others.CountBits(5);
+            for (int i = 0; i < res.Length; i++)
+            {
+                Console.Write(res[i] + "\t");
+            }
+            Console.WriteLine();
             Console.WriteLine("=======OthersMethods======");
         }
     }

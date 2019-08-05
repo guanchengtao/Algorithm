@@ -29,36 +29,47 @@ namespace Algorithm
         /// <param name="num"></param>
         /// <returns></returns>
 
-        /*
-         * public static int[] CountBits(int n)
+        public static int[] CountBits(int n)
         {
             int[] res = new int[n + 1];
             if (n <= 0) return res;
             for (int i = 1; i <= n; i++)
+            {
                 res[i] = res[i & (i - 1)] + 1;
+            }
             return res;
         }
-        */
+
         /// <summary>
         /// 斐波那契数列
         /// </summary>
         /// <param name="n"></param>
-        /// <returns></returns>
-        public static int Fibonacci(int n)
+        /// <returns>1 1 2 3 5 8 13 21 32 55</returns>
+        public static int FibonacciI(int n)
         {
             if (n == 1 || n == 2) return 1;
-            return Fibonacci(n - 1) + Fibonacci(n - 2);
+            return FibonacciI(n - 2) + FibonacciI(n - 1);
         }
-        public static int Fibonacci(int n,int ii)
+        public static int FibonacciII(int n)
         {
-            int num1 = 1;
-            int num2 = 1;
-            int res = 0;
-            for (int i = 3; i <= n; i++)
+            if (n == 1 || n == 2) return 1;
+            int[] res = new int[n];
+            res[0] = res[1] = 1;
+            for (int i = 2; i < n; i++)
+            {
+                res[i] = res[i - 1] + res[i - 2];
+            }
+            return res[n - 1];
+        }
+        public static int FibonacciIII(int n)
+        {
+            if (n == 1 || n == 2) return 1;
+            int num1 = 1, num2 = 1, res = 0;
+            for (int i = 2; i < n; i++)
             {
                 res = num1 + num2;
-                num2 = num1;
-                num1 = res;
+                num1 = num2;
+                num2 = res;
             }
             return res;
         }
