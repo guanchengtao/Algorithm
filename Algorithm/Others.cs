@@ -41,7 +41,7 @@ namespace Algorithm
         }
 
         /// <summary>
-        /// 斐波那契数列
+        /// 斐波那契数列、青蛙爬台阶、拿苹果
         /// </summary>
         /// <param name="n"></param>
         /// <returns>1 1 2 3 5 8 13 21 32 55</returns>

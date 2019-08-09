@@ -234,6 +234,22 @@ namespace Algorithm
             }
             return res;
         }
+        public static int CoinsChange(int[] coins, int amount)
+        {
+            if (coins.Length == 0) return 0;
+            int[] opts = new int[amount + 1];
+            opts[0] = 0;
+            for (int i = 1; i <= amount; i++)
+            {
+                opts[i] = int.MaxValue;
+                foreach (int coin in coins)
+                {
+                    if (i >= coin) opts[i] = min(opts[i], opts[i - coin] + 1);
+                }
+            }
+            return opts[amount] == int.MaxValue ? -1 : opts[amount];
+
+        }
 
         #region 辅助函数
         public static int max(int num1, int num2)

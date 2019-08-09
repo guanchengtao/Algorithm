@@ -52,6 +52,8 @@
     <Compile Include="QueueStack.cs" />
     <Compile Include="Search.cs" />
     <Compile Include="Sort.cs" />
+    <Compile Include="String.cs" />
+    <Compile Include="TreeNode.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

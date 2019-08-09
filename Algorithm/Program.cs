@@ -1,5 +1,6 @@
 ﻿using Arrays;
 using LinkNodeHelper;
+using SortHelper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,14 +16,40 @@ namespace Algorithm
         {
 
             //  SearchMethods();
-            //DPMethods();
+            // DPMethods();
             //  ArrayMethods();
             //  StackAndQueue();
             //OthersMethods();
-            LinkListMethods();
-
-
+            //LinkListMethods();
+             TreeNodeMethods();
+            //  StringMethods();
+           // SortMethods();
+            //Console.WriteLine(1024 * 39);
             Console.ReadKey();
+        }
+        static void StringMethods()
+        {
+            Console.WriteLine(String.LongestSubstringWithoutDuplication("aabbcc"));
+        }
+        static void TreeNodeMethods()
+        {
+            TreeNode tree = new TreeNode();
+            var root = tree.Create();
+            tree.PreOrder(root);
+            Console.WriteLine();
+            tree.PreorderTraversal(root);
+            Console.WriteLine();
+            tree.InOrder(root);
+            Console.WriteLine();
+            tree.InorderTraversal(root);
+            Console.WriteLine();
+            tree.PostOrder(root);
+            Console.WriteLine();
+            tree.PostOrderTraversal(root);
+            Console.WriteLine();
+            Console.WriteLine(tree.IsBalanced(root));
+            Console.WriteLine(tree.IsSymmetric(root));
+            Console.WriteLine(tree.GetLength(root));
         }
         static void LinkListMethods()
         {
@@ -55,7 +82,7 @@ namespace Algorithm
             ListNode delhead =  list.DeleteDuplicates(mergehead);
             list.Print(delhead);
 
-
+            
         }
         static void SearchMethods()
         {
@@ -92,6 +119,7 @@ namespace Algorithm
             Console.WriteLine(DynamicProgramming.Rob(new int[] { 2, 7, 9, 3, 1 }));
             Console.WriteLine(DynamicProgramming.RobII(new int[] { 2, 7, 9, 3, 1 }));
             Console.WriteLine(DynamicProgramming.DoTackForMoney());
+            Console.WriteLine(DynamicProgramming.CoinsChange(new int[] { 1,2,3,5},14));
             Console.WriteLine("======DynamicProgramming========");
         }
         static void ArrayMethods()
@@ -109,6 +137,11 @@ namespace Algorithm
             Console.WriteLine(ArrayHelper.NumbersThatAppearMoreThanHalfTheTimeInArray(new int[] { 1, 2, 3, 3, 3 }));
             //数组是升序数组
             Console.WriteLine(ArrayHelper.TheNumberOfTimesNumberAppears(new int[] { 1, 2, 2, 3, 3 }, 3));
+            var arr = ArrayHelper.ReverseArray(new int[] { 1,2,3,4,5});
+            foreach (int item in arr)
+            {
+                Console.Write(item+"\t");
+            }
             Console.WriteLine("=====Array========");
         }
         static void StackAndQueue()
@@ -146,6 +179,12 @@ namespace Algorithm
             }
             Console.WriteLine();
             Console.WriteLine("=======OthersMethods======");
+        }
+        static void SortMethods()
+        {
+            int[] nums = new int[] { 2, 5, 3, 2, 1, 4 };
+            Sort.QuickSort(ref nums, 0, nums.Length - 1);
+            Sort.Print(nums);
         }
     }
 }

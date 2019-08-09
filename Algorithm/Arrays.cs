@@ -115,5 +115,18 @@ namespace Arrays
             }
             return false;
         }
+        public static  int[] ReverseArray(int[] nums)
+        {
+            //方法一：创建一个新数组
+            //方法二：
+            for (int i = 0; i < nums.Length/2; i++)
+            {
+                int temp = nums[i];
+                nums[i] = nums[nums.Length - 1 - i];
+                nums[nums.Length - 1 - i] = temp;
+            }
+            return nums;
+
+        }
     }
 }

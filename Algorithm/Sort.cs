@@ -78,8 +78,10 @@ namespace SortHelper
                 }
             }
         }
-
-
+        //  一个数组分成2部分   前半部分是m   后半部分是n
+        //冒泡时间  (m + n) ^2
+        //快排时间  m ^2 + n ^2
+        //快排比冒泡每一次排序都少了 2 * m * n
         public static void InsertSort(ref int[] nums)
         {
             // 2 1
