@@ -10,20 +10,82 @@ using System.Threading.Tasks;
 
 namespace Algorithm
 {
+    class InterviewInfo
+    {
+        public int ID { get; set; }
+        public List<InterviewFeedBack> FeedBackList { get; set; }
+    }
+    class InterviewFeedBack
+    {
+        public int FeedBackId { get; set; }
+        public int TenantId { get; set; }
+    }
     class Program
     {
         static void Main(string[] args)
         {
+            #region Linq-Select
+            //List<InterviewInfo> list = new List<InterviewInfo>();
+            //InterviewInfo interviewInfo = new InterviewInfo()
+            //{
+            //    ID = 1,
+            //    FeedBackList = new List<InterviewFeedBack>()
+            //    {
+            //        new InterviewFeedBack(){TenantId = 127796,FeedBackId = 101},
+            //        new InterviewFeedBack(){TenantId = 127796,FeedBackId = 102},
+            //        new InterviewFeedBack(){TenantId = 127796,FeedBackId = 103},
 
+            //    }
+            //};
+            //InterviewInfo interviewInfo1 = new InterviewInfo()
+            //{
+            //    ID = 2
+            //};
+            //InterviewInfo interviewInfo2 = new InterviewInfo()
+            //{
+            //    ID = 3,
+            //    FeedBackList = new List<InterviewFeedBack>()
+            //    {
+            //        new InterviewFeedBack(){TenantId = 127796,FeedBackId = 301},
+            //        new InterviewFeedBack(){TenantId = 127796,FeedBackId = 302}
+            //    }
+            //};
+            //InterviewInfo interviewInfo3 = new InterviewInfo()
+            //{
+            //    ID = 4
+            //};
+            //list.Add(interviewInfo);
+            //list.Add(interviewInfo1);
+            //list.Add(interviewInfo2);
+            //list.Add(interviewInfo3);
+            //List<int> Ids = new List<int>();
+            //foreach (var interview in list)
+            //{
+            //    if(interview.FeedBackList!=null && interview.FeedBackList.Count() > 0)
+            //    {
+            //        Ids.AddRange(interview.FeedBackList.Select(x => x.FeedBackId));
+            //    }
+            //}
+            //foreach (var item in Ids)
+            //{
+            //    Console.Write(item + "、");
+            //} 
+            #endregion
+            //17.3*16+1.5房补+期权
+            //狗东本科白菜 17*14
+            Console.WriteLine($"Kuaishou：{17.3 * 16}");
+            Console.WriteLine($"Jingdong：{ 17*14}");
+            Console.WriteLine($"Beisen:{20*14}");
+            Console.WriteLine("$EestMoney:{}");
             //  SearchMethods();
             // DPMethods();
             //  ArrayMethods();
             //  StackAndQueue();
             //OthersMethods();
             //LinkListMethods();
-             TreeNodeMethods();
+            //  TreeNodeMethods();
             //  StringMethods();
-           // SortMethods();
+            // SortMethods();
             //Console.WriteLine(1024 * 39);
             Console.ReadKey();
         }
