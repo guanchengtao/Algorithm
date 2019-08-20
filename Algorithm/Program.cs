@@ -71,22 +71,20 @@ namespace Algorithm
             //    Console.Write(item + "、");
             //} 
             #endregion
-            //17.3*16+1.5房补+期权
-            //狗东本科白菜 17*14
-            Console.WriteLine($"Kuaishou：{17.3 * 16}");
-            Console.WriteLine($"Jingdong：{ 17*14}");
-            Console.WriteLine($"Beisen:{20*14}");
-            Console.WriteLine("$EestMoney:{}");
+
+            Console.WriteLine("Wow!Vs2017 is Cool!");
             //  SearchMethods();
             // DPMethods();
             //  ArrayMethods();
             //  StackAndQueue();
             //OthersMethods();
-            //LinkListMethods();
+            LinkListMethods();
             //  TreeNodeMethods();
             //  StringMethods();
             // SortMethods();
             //Console.WriteLine(1024 * 39);
+
+
             Console.ReadKey();
         }
         static void StringMethods()
@@ -124,6 +122,7 @@ namespace Algorithm
             //list.Print(newhead); 
             #endregion
             #region merge
+            /*
             int[] nums1 = { 1, 3, 4, 6, 7, 8 };
             int[] nums2 = { 2, 3, 4, 5 };
             var head1 = list.Create(nums1);
@@ -131,6 +130,7 @@ namespace Algorithm
             var mergehead = list.MergeLinkList(head1, head2);
             list.Print(mergehead);
             Console.WriteLine(list.GetLength(mergehead));
+            */
             #endregion
 
             #region firstcommonnode
@@ -141,9 +141,23 @@ namespace Algorithm
             //Console.WriteLine(list.FirstCommonNode(head1, head2));
             #endregion
 
-            ListNode delhead =  list.DeleteDuplicates(mergehead);
-            list.Print(delhead);
-
+            //  ListNode delhead =  list.DeleteDuplicates(mergehead);
+            //     list.Print(delhead);
+            var head = list.Create(new int[] { 1, 2, 3, 4, 5, 6 });
+            var p = head;
+            ListNode portal = null;
+            while(p!=null)
+            {
+                if ((int)p.Data == 5) portal = p;
+                if ((int)p.Data == 6)
+                {
+                    p.Next = portal;
+                    break;
+                }
+                p = p.Next;
+            }
+            Console.WriteLine(list.IsRing(head));
+            Console.WriteLine(list.RingProtal(head).Data);
             
         }
         static void SearchMethods()

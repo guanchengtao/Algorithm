@@ -65,6 +65,52 @@ namespace LinkNodeHelper
             return length;
         }
         /// <summary>
+        /// 判断链表是否有环
+        /// </summary>
+        /// <param name="head">1、2、3、4、5、6</param>
+        /// <returns></returns>
+        public bool IsRing(ListNode head)
+        {
+            if (head == null || head.Next == null) return false;
+            var slow = head;
+            var fast = head;
+            while (fast != null && fast.Next != null)
+            {
+                slow = slow.Next;
+                fast = fast.Next.Next;
+                if (slow == fast) return true;
+            }
+            return false;
+        }
+        /// <summary>
+        /// 求环的入口
+        /// </summary>
+        /// <param name="head"></param>
+        /// <returns></returns>
+        public ListNode RingProtal(ListNode head)
+        {
+            if (head == null || head.Next == null) return null;
+            var slow = head;
+            var fast = head;
+            while (fast !=null && fast.Next != null)
+            {
+                slow = slow.Next;
+                fast = fast.Next.Next;
+                if(slow == fast)
+                {
+                    fast = head;
+                    while(slow !=fast)
+                    {
+                        slow = slow.Next;
+                        fast = fast.Next;
+                    }
+                    return slow;
+                }
+            }
+            return null;
+        }
+
+        /// <summary>
         /// 反转链表
         /// </summary>
         /// <param name="head"></param>
