@@ -33,6 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="RabbitMQ.Client">
+      <HintPath>..\RabbitMqDemo\bin\Debug\RabbitMQ.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="RabbitMQ.ServiceModel">
+      <HintPath>..\RabbitMqDemo\bin\Debug\RabbitMQ.ServiceModel.dll</HintPath>
+    </Reference>
     <Reference Include="ServiceStack">
       <HintPath>..\..\Spring.Net\IRedisDAL\bin\Debug\ServiceStack.dll</HintPath>
     </Reference>
@@ -43,6 +49,7 @@
       <HintPath>..\..\Spring.Net\IRedisDAL\bin\Debug\StackExchange.Redis.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />

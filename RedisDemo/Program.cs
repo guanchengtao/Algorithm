@@ -10,11 +10,33 @@ namespace RedisDemo
     {
         static void Main(string[] args)
         {
-            RedisClientHelper.AddChche("1", "aaa");
-            object msg = RedisClientHelper.GetChche("1");
-            Console.WriteLine(msg);
-            RedisClientHelper.SetCacheExpires("1",DateTime.Now.AddSeconds(10));
+            List<Person> list = new List<Person>()
+            {
+                new Person(){Id=3},
+            };
+            if(!list.Any(x=>x.Id == 1))
+            {
+                Console.WriteLine(true);
+            }
+            else
+            {
+                Console.WriteLine(false);
+            }
+           
+
+        //  RedisClientHelper redisClient = new RedisClientHelper(0);
+        //  redisClient.AddChche("2", "World");
+        //  RedisClientHelper redisClient1 = new RedisClientHelper(1);
+        //   Console.WriteLine(redisClient1.GetChche("2"));
+        //从节点只能读
+        //redisClient1.AddChche("2", "World");
+        // Console.WriteLine(msg1);
+        //   RedisClientHelper.SetCacheExpires("1",DateTime.Now.AddSeconds(10));
             Console.Read();
         }
+    }
+    class Person
+    {
+        public int Id { get; set; }
     }
 }
