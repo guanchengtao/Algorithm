@@ -74,7 +74,7 @@ namespace LinkNodeHelper
             if (head == null || head.Next == null) return false;
             var slow = head;
             var fast = head;
-            while (fast != null && fast.Next != null)
+            while(fast != null && fast.Next != null)
             {
                 slow = slow.Next;
                 fast = fast.Next.Next;
@@ -117,11 +117,11 @@ namespace LinkNodeHelper
         /// <returns></returns>
         public ListNode Reverse(ListNode head)
         {
-            ListNode cur = head;
-            ListNode pre = null;
-            while (cur != null)
+            var cur = head;
+            ListNode pre = head;
+            while(cur != null)
             {
-                ListNode nextp = cur.Next;
+                var nextp = cur.Next;
                 cur.Next = pre;
                 pre = cur;
                 cur = nextp;
@@ -238,7 +238,7 @@ namespace LinkNodeHelper
         public ListNode DeleteDuplicates(ListNode head)
         {
             ListNode cur = head;
-            while (cur!=null && cur.Next!=null)
+            while (cur != null && cur.Next != null)
             {
                 if(cur.Data==cur.Next.Data)
                 {
