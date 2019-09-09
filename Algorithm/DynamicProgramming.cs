@@ -181,15 +181,18 @@ namespace Algorithm
         /// <summary>
         /// 能看到的最多楼数
         /// </summary>
-        /// <param name="Buildings"> 1 3 4 2 5</param>
+        /// <param name="Buildings">1 3 4 2 5</param>
         /// <returns></returns>
         public static int[] MaxSeeBuildings(int[] Buildings)
         {
             // 4 4 4 3 3
-            //for (int i = 0; i < Buildings.Length; i++)
-            //{
-            //    for
-            //}
+            for (int i = 0; i < Buildings.Length; i++)
+            {
+                for (int j = 0; j < Buildings.Length; j++)
+                {
+
+                }
+            }
             return new int[1];
         }
         /// <summary>

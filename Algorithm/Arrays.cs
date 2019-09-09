@@ -68,6 +68,11 @@ namespace Arrays
             }
             return count; */
         }
+        /// <summary>
+        /// 数组的众数
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <returns></returns>
         public static int NumbersThatAppearMoreThanHalfTheTimeInArray(int[] nums)
         {
             //O(1) space O(n) time
@@ -86,25 +91,14 @@ namespace Arrays
             return res;
         }
         //从Two-dimensional array中find one number
+        /// <summary>
+        /// 二维数组查询数
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
         public static bool FindingInTwoDimensionalArray(int[,] nums, int key)
-        {
-            /* This solution is two low.
-            int m = nums.GetLength(0);
-            int n = nums.GetLength(1);
-            for (int i = 0; i < m; i++)
-            {
-                for (int j = 0; j < n; j++)
-                {
-                    if (nums[i, j] == key) return true;
-                }
-            }
-            return false;
-            //key = 10
-              { 1, 2, 8, 9  },
-              { 2, 4, 9, 12 },
-              { 4, 7, 10,13 },
-              { 6, 8, 11,15 }
-             */
+        { 
             int row = 0;
             int col = nums.GetLength(1) - 1;
             while (row < nums.GetLength(0) && col >= 0)
@@ -115,6 +109,11 @@ namespace Arrays
             }
             return false;
         }
+        /// <summary>
+        /// 反转数组
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <returns></returns>
         public static  int[] ReverseArray(int[] nums)
         {
             //方法一：创建一个新数组
@@ -127,6 +126,75 @@ namespace Arrays
             }
             return nums;
 
+        }
+        /// <summary>
+        /// 寻找最长上升子序列,非连续
+        /// </summary>
+        /// <param name="nums">[1,2,3,4,2,3,4,5,7,3,1]</param>
+        /// <returns></returns>
+        public static int FindLongestUpChildQueue(int[] nums)
+        {
+            int[] dp = new int[1000];
+            int res = 0;
+            for (int i = 0; i < nums.Length; i++)
+            {
+                for (int j = 0; j < i; j++)
+                {
+                    if (nums[i] > nums[j])
+                    {
+                        dp[i] = Math.Max(dp[i], dp[j] + 1);
+                        res = Math.Max(res, dp[i]);
+                    }
+                }
+            }
+            return res + 1;
+            // 3, 1, 2, 1, 8, 5, 6
+        }
+
+        public static int GetMaxMoney(int[,] nums)
+        {
+            int m = nums.GetLength(0), n = nums.GetLength(1);
+            int[,] opts = new int[m + 1, n + 1];
+            for (int i = 1; i <= m; i++)
+            {
+                for (int j = 1; j <= n; j++)
+                {
+                    opts[i, j] = nums[i - 1, j - 1] + Math.Max(opts[i - 1, j], opts[i, j - 1]);
+                }
+            }
+            return opts[m, n];
+        }
+        public static int GetMinMoney(int[,] nums)
+        {
+            int m = nums.GetLength(0), n = nums.GetLength(1);
+            int[,] opts = new int[m + 1, n + 1];
+            for (int i = 1; i <= m; i++)
+            {
+                for (int j = 1; j <= n; j++)
+                {
+                    int minval = Math.Min(opts[i - 1, j], opts[i, j - 1]);
+                    if (i == 1) minval = opts[i, j - 1];
+                    if (j == 1) minval = opts[i - 1, j];
+                    opts[i, j] = nums[i - 1, j - 1] + minval;
+                }
+            }
+            return opts[m, n];
+        }
+        public static int GetAllPaths(int m, int n)
+        {
+            int[,] opts = new int[m, n];
+            for (int i = 0; i < m; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    if (j == 0 || i == 0) opts[i, j] = 1;
+                    else
+                    {
+                        opts[i, j] = opts[i - 1, j] + opts[i, j - 1]; 
+                    }
+                }
+            }
+            return opts[m - 1, n - 1];
         }
     }
 }

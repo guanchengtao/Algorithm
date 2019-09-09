@@ -11,7 +11,7 @@ namespace RedisDemo
     class RedisClientHelper
     {
         private static RedisClient redisClient = null;
-        private static readonly List<Server> ServesList=new List<Server> ();
+        private static readonly List<Server> ServesList = new List<Server> ();
         static RedisClientHelper()
         {
             string connectionString = ConfigurationManager.AppSettings["RedisCacheServer"];

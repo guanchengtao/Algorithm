@@ -72,19 +72,42 @@ namespace Algorithm
             //} 
             #endregion
 
-            Console.WriteLine("Wow!Vs2017 is Cool!");
+            #region Methods
+            // Console.WriteLine("Wow!Vs2017 is Cool!");
             //  SearchMethods();
             // DPMethods();
-            //  ArrayMethods();
+            //int[,] nums1 = new int[3, 3] {
+            //  {1, 3, 1},
+            //  {1, 5, 1},
+            //  {4, 2, 1}
+            //};
+            //int x = Arrays.ArrayHelper.GetMinMoney(nums1);
+            //Console.WriteLine(x);
+            //Console.WriteLine(ArrayHelper.GetAllPaths(7,3));
+
+            //   ArrayMethods();
             //  StackAndQueue();
             //OthersMethods();
-            LinkListMethods();
+            //  LinkListMethods();
             //  TreeNodeMethods();
             //  StringMethods();
             // SortMethods();
-            //Console.WriteLine(1024 * 39);
+            //Console.WriteLine(1024 * 39); 
+            #endregion
 
-
+            List<InterviewFeedBack> list = new List<InterviewFeedBack>()
+            {
+                new InterviewFeedBack(){FeedBackId = 1,TenantId = 1},
+                new InterviewFeedBack(){FeedBackId = 2,TenantId = 2}
+            };
+            InterviewFeedBack interviewFeedBack = new InterviewFeedBack()
+            {
+                FeedBackId = 1,
+                TenantId = 1
+            };
+            Console.WriteLine(list.Contains(interviewFeedBack)); //false Contains包含的是引用
+            var interviewFeedBack1 = list.FirstOrDefault();
+            Console.WriteLine(list.Contains(interviewFeedBack1)); //false Contains包含的是引用
             Console.ReadKey();
         }
         static void StringMethods()
@@ -218,6 +241,9 @@ namespace Algorithm
             {
                 Console.Write(item+"\t");
             }
+            Console.WriteLine();
+            Console.WriteLine("====9.6====");
+            Console.WriteLine(ArrayHelper.FindLongestUpChildQueue(new int[] { 3, 1, 2, 1, 8, 5, 6 }));
             Console.WriteLine("=====Array========");
         }
         static void StackAndQueue()
